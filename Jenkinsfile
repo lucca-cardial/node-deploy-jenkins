@@ -6,7 +6,7 @@ node {
   tag = readFile('commit-id').replace('\n', '').replace('\r', '')
 
   // Set tge application name, the repository address and the image name with version
-  appName = 'app'
+  appName = 'node'
   registryHost = '127.0.0.1:30400/'
   imageName = "${registryHost}${appName}:${tag}"
   k8sfile = "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"

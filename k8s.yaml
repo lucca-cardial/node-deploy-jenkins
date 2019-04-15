@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: rcapp
-          image: "127.0.0.1:30400/app:latest"
+          image: "127.0.0.1:30400/node:latest"
           imagePullPolicy: Always
           ports:
             - name: http
