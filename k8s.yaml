@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rcapp
+  name: app
   labels:
-    app: rapp
+    app: app
 spec:
   ports:
     - port: 5000
@@ -11,22 +11,22 @@ spec:
       nodePort: 32001
 
   selector:
-    app: rcapp
+    app: app
   type: NodePort
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: rcapp
+  name: app
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        app: rcapp
+        app: app
     spec:
       containers:
-        - name: rcapp
+        - name: app
           image: "127.0.0.1:30400/node:latest"
           imagePullPolicy: Always
           ports:
