@@ -9,7 +9,7 @@ node {
   appName = 'app'
   registryHost = '127.0.0.1:30400/'
   imageName = "${registryHost}${appName}:${tag}"
-  k8sfile = "https://raw.githubusercontent.com/lucca-cardial"
+  k8sfile = "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"
 
   // Define Pepiline
 
@@ -22,5 +22,7 @@ node {
   stage "Deploy PROD"
   input "Deploy to PROD?"
   customImage.push('latest')
-  sh "kubectl apply -f https"
+  sh "kubectl apply -f ${k8sfile}"
+  sh "kubectl set image deployment rcapp app=${imageName} --record"
+  sh "kubectl rollout status deployment/app"
 }
