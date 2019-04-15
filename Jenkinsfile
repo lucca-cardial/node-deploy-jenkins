@@ -23,6 +23,6 @@ node {
   input "Deploy to PROD?"
   customImage.push('latest')
   sh "kubectl apply -f ${k8sfile}"
-  sh "kubectl set image deployment rcapp app=${imageName} --record"
+  sh "kubectl set image deployment app app=${imageName} --record"
   sh "kubectl rollout status deployment/app"
 }
