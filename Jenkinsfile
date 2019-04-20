@@ -7,7 +7,7 @@ node {
 
   // Set tge application name, the repository address and the image name with version
   appName = 'medikar-ud'
-  registryHost = 'awesome-registry-base.codeall.com.br:80/'
+  registryHost = '127.0.0.1:30400/'
   imageName = "${registryHost}${appName}:${tag}"
   k8sfile = "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"
 
