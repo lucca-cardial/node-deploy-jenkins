@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: medikar-ud
-          image: "awesome-registry-base.codeall.com.br/medikar-ud:latest"
+          image: "127.0.0.1:30400/medikar-ud:latest"
           imagePullPolicy: Always
           ports:
             - name: http
