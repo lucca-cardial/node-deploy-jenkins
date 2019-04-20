@@ -1,48 +1,51 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: medikar-ud
+  name: react-app
   labels:
-    app: medikar-ud
+    app: react-app
 spec:
   ports:
     - name: http
-      port: 80
       targetPort: 80
+      port: 80
   selector:
-    app: medikar-ud
+    app: react-app
 ---
-apiVersion: extensions/v1beta1
 kind: Deployment
+apiVersion: extensions/v1beta1
 metadata:
-  name: medikar-ud
+  name: react-app
+  labels:
+    app: react-app
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: react-app
   template:
     metadata:
       labels:
-        app: medikar-ud
+        app: react-app
     spec:
       containers:
-        - name: medikar-ud
-          image: "127.0.0.1:30400/medikar-ud:latest"
-          imagePullPolicy: Always
+        - name: react-app
+          image: 127.0.0.1:30400/medikar-ud:latest
           ports:
-            - name: http
-              containerPort: 80
+            - containerPort: 80
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: medikar-ud
+  name: react-app
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-    - host: unidade.codeall.com.br
+    - host: react-app.medikar.com.br
       http:
         paths:
           - path: /
             backend:
-              serviceName: medikar-ud
+              serviceName: react-app
               servicePort: http
