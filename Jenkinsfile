@@ -1,4 +1,4 @@
-pipeline {
+node {
   agent { label 'ontrack' }
   checkout scm
 
