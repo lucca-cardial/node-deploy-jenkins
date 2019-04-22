@@ -1,4 +1,5 @@
-node {
+pipeline {
+  agent { label 'ontrack' }
   checkout scm
 
   // Take the latest id to will use as image tag
@@ -14,7 +15,6 @@ node {
   // Define Pepiline
 
   stage "Build"
-    agent { label 'ontrack' }
     def  customImage = docker.build("${imageName}")
 
   stage "Push"
