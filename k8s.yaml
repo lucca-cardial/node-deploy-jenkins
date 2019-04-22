@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: 127.0.0.1:30400/medikar-ud:latest
+          image: 127.0.0.1:30400/node-test:latest
           ports:
             - containerPort: 80
 ---
