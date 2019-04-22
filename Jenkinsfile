@@ -14,6 +14,7 @@ node {
   // Define Pepiline
 
   stage "Build"
+    agent { label 'ontrace' }
     def  customImage = docker.build("${imageName}")
 
   stage "Push"
