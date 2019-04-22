@@ -1,7 +1,5 @@
-node {
+pipeline {
   agent { label 'ontrack' }
-  checkout scm
-
   // Take the latest id to will use as image tag
   sh "git rev-parse --short HEAD > commit-id"
   tag = readFile('commit-id').replace('\n', '').replace('\r', '')
@@ -14,16 +12,18 @@ node {
 
   // Define Pepiline
 
-  stage "Build"
+  stages { 
+    stage "Build"
     def  customImage = docker.build("${imageName}")
 
-  stage "Push"
-    customImage.push()
-  
-  stage "Deploy PROD"
-  input "Deploy to PROD?"
-  customImage.push('latest')
-  sh "kubectl apply -f ${k8sfile}"
-  sh "kubectl set image deployment app app=${imageName} --record"
-  sh "kubectl rollout status deployment/app"
+    stage "Push"
+      customImage.push()
+    
+    stage "Deploy PROD"
+    input "Deploy to PROD?"
+    customImage.push('latest')
+    sh "kubectl apply -f ${k8sfile}"
+    sh "kubectl set image deployment app app=${imageName} --record"
+    sh "kubectl rollout status deployment/app"
+  }
 }
