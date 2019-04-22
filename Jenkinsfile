@@ -24,6 +24,6 @@ node {
   input "Deploy to PROD?"
   customImage.push('latest')
   sh "/snap/bin/kubectl apply -f ${k8sfile}"
-  sh "/snap/bin/kubectl set image deployment app app=${imageName} --record"
-  sh "/snap/bin/kubectl rollout status deployment/app"
+  sh "/snap/bin/kubectl set image deployment react-app react-app=${imageName} --record"
+  sh "/snap/bin/kubectl rollout status deployment/react-app"
 }
