@@ -32,5 +32,4 @@ node {
   sh "/snap/bin/kubectl set image deployment react-app react-app=${imageName} --record"
   sh "/snap/bin/kubectl rollout status deployment/react-app"
   
-  */
 }
