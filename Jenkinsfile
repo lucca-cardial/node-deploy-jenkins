@@ -11,7 +11,7 @@ node {
   appName = 'node-test'
   registryHost = 'registry-pusher.medikar.com.br/'
   imageName = "${registryHost}${appName}:${tag}"
-  k8sfile = "${workspace}/node-deploy-jenkins/master/k8s.yaml"
+  k8sfile = "${workspace}/k8s.yaml"
 
   // Define Pepiline
 
