@@ -2,8 +2,6 @@
 node {
   checkout scm
   label 'ontrack'
-
-  stage "Get File"
  
     //${workspace} will now contain an absolute path to job workspace on slave 
   // Take the latest id to will use as image tag
