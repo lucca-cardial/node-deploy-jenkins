@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -8,10 +8,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            CCM TEAM WORK !
-          </p>
-          <small>C.I Successfully</small>
+          <p>CCM TEAM WORK !</p>
+          <small>CCM C.I Successfully</small>
           <a
             className="App-link"
             href="https://reactjs.org"
