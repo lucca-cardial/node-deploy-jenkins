@@ -4,7 +4,7 @@ node {
   label 'ontrack'
 
   stage "Get File"
-  pomPath = findFiles("k8s.yml")[0].path
+  pomPath = findFiles(archive:"k8s.yml")[0].path
   env.WORKSPACE = pwd()
   def projectName = new File(pomPath).parent
   baseDir = "${env.WORKSPACE}/$projectName"
