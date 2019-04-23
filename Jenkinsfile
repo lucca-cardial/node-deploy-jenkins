@@ -4,6 +4,7 @@ node {
   
   //now you are on slave labeled with 'label'
     def workspace = pwd()
+    echo workspace
     //${workspace} will now contain an absolute path to job workspace on slave 
   
   /*
