@@ -11,8 +11,6 @@ node {
   registryHost = 'registry-pusher.medikar.com.br/'
   imageName = "${registryHost}${appName}:${tag}"
   k8sfile = "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"
-  sh mkdir /root/test-access 
-  sh cp $WORKSPACE/build/ontrace.build /root/test-access
 
   // Define Pepiline
 
