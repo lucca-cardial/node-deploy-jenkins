@@ -1,7 +1,14 @@
+def getFolderName() {
+    def array = pwd().split("/")
+    return array[array.length - 2];
+}
+
 node {
   checkout scm
   label 'ontrack'
-  
+   def foldername = getFolderName()
+        
+        print "${foldername}"
   //now you are on slave labeled with 'label'
     def workspace = pwd()
     echo workspace
