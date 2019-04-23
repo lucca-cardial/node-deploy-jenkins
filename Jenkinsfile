@@ -2,10 +2,12 @@
 node {
   checkout scm
   label 'ontrack'
-  //now you are on slave labeled with 'label'
-    def workspace = pwd()
-    echo workspace
-    sh ls
+
+  stage "Get File"
+  pomPath = findFiles("k8s.yml")[0].path
+  env.WORKSPACE = pwd()
+  def projectName = new File(pomPath).parent
+  baseDir = "${env.WORKSPACE}/$projectName"
     //${workspace} will now contain an absolute path to job workspace on slave 
   
   /*
