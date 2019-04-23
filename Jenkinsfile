@@ -4,13 +4,8 @@ node {
   label 'ontrack'
 
   stage "Get File"
-  pomPath = findFiles(archive:"k8s.yml")[0].path
-  env.WORKSPACE = pwd()
-  def projectName = new File(pomPath).parent
-  baseDir = "${env.WORKSPACE}/$projectName"
+ 
     //${workspace} will now contain an absolute path to job workspace on slave 
-  
-  /*
   // Take the latest id to will use as image tag
   sh "git rev-parse --short HEAD > commit-id"
   tag = readFile('commit-id').replace('\n', '').replace('\r', '')
@@ -19,7 +14,7 @@ node {
   appName = 'node-test'
   registryHost = 'registry-pusher.medikar.com.br/'
   imageName = "${registryHost}${appName}:${tag}"
-  k8sfile = readFile 'k8s.yaml' 
+  k8sfile = findFiles(glob: '**/k8s.yml') 
   // "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"
 
   // Define Pepiline
