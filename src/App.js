@@ -11,6 +11,7 @@ class App extends Component {
           <p>
             CCM TEAM WORK !
           </p>
+          <small>C.I Successfully</small>
           <a
             className="App-link"
             href="https://reactjs.org"
