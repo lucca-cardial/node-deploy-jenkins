@@ -1,7 +1,12 @@
 node {
   checkout scm
-  label 'ontrack' 
-
+  label 'ontrack'
+  
+  //now you are on slave labeled with 'label'
+    def workspace = pwd()
+    //${workspace} will now contain an absolute path to job workspace on slave 
+  
+  /*
   // Take the latest id to will use as image tag
   sh "git rev-parse --short HEAD > commit-id"
   tag = readFile('commit-id').replace('\n', '').replace('\r', '')
@@ -27,4 +32,6 @@ node {
   sh "/snap/bin/kubectl apply -f ${k8sfile}"
   sh "/snap/bin/kubectl set image deployment react-app react-app=${imageName} --record"
   sh "/snap/bin/kubectl rollout status deployment/react-app"
+  
+  */
 }
