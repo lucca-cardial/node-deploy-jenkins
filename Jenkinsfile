@@ -10,7 +10,8 @@ node {
   appName = 'node-test'
   registryHost = 'registry-pusher.medikar.com.br/'
   imageName = "${registryHost}${appName}:${tag}"
-  k8sfile = "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"
+  k8sfile = readFile 'k8s.yaml' 
+  // "https://raw.githubusercontent.com/lucca-cardial/node-deploy-jenkins/master/k8s.yaml"
 
   // Define Pepiline
 
