@@ -6,4 +6,6 @@ node {
   env.WORKSPACE = pwd()
   def projectName = new File(pomPath).parent
   baseDir = "${env.WORKSPACE}/$projectName"
+  echo "dir"
+  echo baseDir
 }
